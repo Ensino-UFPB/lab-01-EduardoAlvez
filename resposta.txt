@@ -1,1 +1,90 @@
 Coloque aqui todas as respostas das práticas indicadas no README.md
+
+Questão 1.1: 255.255.0.0
+Questão 1.2: 172.18.0.1
+Questão 1.3: Existem duas rotas uma com "destination" 0.0.0.0 e outra com 172.18.0.0
+
+Questão 2.1 : 172.18.0.2
+Questão 2.2 : a rede é "172.18.0.0" já a máscara é "/16 ou 255.255.0.0" 
+Questão 2.3 : "eth0"
+
+Questão 3.1 : 
+
+Address "172.217.30.68" www.google.com
+Address "192.0.66.51" www.whitehouse.gov
+Address Non-authoritative answer: "104.18.27.22" e "104.18.26.22" www.rnp.br
+Address "150.165.254.52" www.ufpb.br
+
+Questão 4.1 :
+
+--- 127.0.0.1 ping statistics ---
+44 packets transmitted, 44 packets received, 0% packet loss
+min/avg/max/stddev = 0.030/0.036/0.082/0.000 ms
+
+Dentro do Container: 
+--- 172.18.0.2 ping statistics ---
+20 packets transmitted, 20 packets received, 0% packet loss
+min/avg/max/stddev = 0.031/0.036/0.092/0.000 ms
+
+Questão 4.2 :
+
+www.ufpb.br, acessível, tempo medio 35.238.
+--- nginx.bbn.ufpb.br ping statistics ---
+21 packets transmitted, 21 packets received, 0% packet loss
+min/avg/max/stddev = 24.342/35.238/44.549/6.695 ms
+
+www.yahoo.com acessível, tempo medio 169.800
+20 packets transmitted, 20 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 168.561/169.800/177.453/1.796 ms
+
+www.brasil.gov.br acessível, tempo médio 75.681
+20 packets transmitted, 20 packets received, 0% packet loss
+min/avg/max/stddev = 74.999/75.681/76.787/0.541 ms
+
+www.dce.ufpb.br inacessível.
+ping: unknown host
+
+Questão 4.3 :
+
+Existes vários fatores que podem causar a diferença de tempo de resposta, desde a localização do servidores de cada site até como a provedora da minha rede se comunica com cada um deles.
+
+www.google.com :     min/avg/max/stddev = 57.635/58.562/59.433/0.552 ms
+www.rnp.br :         min/avg/max/stddev = 58.506/59.041/60.312/0.605 ms
+www.whitehouse.gov : min/avg/max/stddev = 57.891/58.388/58.697/0.266 ms
+
+Questão 5 :
+
+Todos os resultado foram iguais, o fato de na oter informação que dizer que alguma informações ao longo do caminho nao fora mrespondida ou estão ocultas.
+
+Isso nao que dizer que exista um problema, e totalmente normal que alguns servidores nao responda toda as informações solicitadas.
+
+1  172.18.0.1 (172.18.0.1)  1.036 ms  0.735 ms  0.714 ms
+ 2  * * *
+ .
+ .
+ .
+30  * * *
+
+Questão 6 :
+
+Sim, sao as mesmas lista de informação quando usamos o comendo "netstat -r", porem no comando "netstat -tulnp " temos algumas informações adicionais.
+
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name     
+tcp        0      0 127.0.0.11:39557        0.0.0.0:*               LISTEN      -
+udp        0      0 127.0.0.11:48021        0.0.0.0:*                           -
+
+Questão 7 :
+
+7.1 Não respondeu, "Connection closed by foreign host.". "www.ufpb.br 80"
+
+7.2 A respsota recebida foi diferente da anterior, destacando que pode ser outro problema "Server lookup failure:  www.dce.ufpb.br:21, Name or service not known", pra identificar o real problema seria necessario fazer outra verificações que ja foram feita, e tudo indica pra um problema de serviço.
+
+Questão 8: 
+
+8.1 : Usado para identifica problema de conectividade em rede IP, fornencendo informações detalhada.
+
+8.2: Ele e útil quando temos que verificar ser um endereço está com algum problema de conectividade, ou se pode ser outra causa que está deixando com um baixa estabilidade.
+
+8.3: Testado.
+
+8.4: Para interpretar o MTR temos que sabe o conseito de dois componentes: latência e perdas de pacotes, sabendo disso podemos analisar mais profundamente, o mrt nós dar varias informações e cada um dela tem seu valor para um possivel problema, exemplo podemos "Loss%" nós da a informação de pacotes perdidos, que pode indicar um poblema de conectividade, e assim por diante com cara componete.
